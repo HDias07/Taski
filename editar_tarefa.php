@@ -92,12 +92,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 10px 30px rgba(34, 12, 85, 0.2);
+        }
+
+        .brand-box {
+            padding: 10px 24px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            box-shadow: 0 12px 28px rgba(32, 12, 76, 0.18);
         }
 
         header img {
-            height: 84px;
+            height: 68px;
             max-width: 100%;
             object-fit: contain;
+            display: block;
         }
 
         .page {
@@ -196,7 +206,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 </head>
 <body>
 <header>
-    <img src="img/logo-taski-png.png" alt="Taski">
+    <div class="brand-box">
+        <img src="img/logo-taski-png.png" alt="Taski">
+    </div>
 </header>
 
 <main class="page">

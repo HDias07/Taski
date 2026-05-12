@@ -71,12 +71,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // cadastro de tarefas
             display: flex;
             justify-content: center;
             align-items: center;
+            box-shadow: 0 10px 30px rgba(34, 12, 85, 0.2);
+        }
+
+        .brand-box {
+            padding: 10px 24px;
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.96);
+            border: 1px solid rgba(255, 255, 255, 0.75);
+            box-shadow: 0 12px 28px rgba(32, 12, 76, 0.18);
         }
 
         header img {
-            height: 84px;
+            height: 68px;
             max-width: 100%;
             object-fit: contain;
+            display: block;
         }
 
         .page {
@@ -132,13 +142,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // cadastro de tarefas
 
         .logout-link:hover {
             background: rgba(255, 255, 255, 0.28);
-        }
-
-        .content {
-            display: grid;
-            grid-template-columns: minmax(280px, 340px) 1fr;
-            gap: 24px;
-            align-items: start;
         }
 
         .panel {
@@ -207,6 +210,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // cadastro de tarefas
         .btn:hover {
             background-color: #3b7aa3;
             transform: translateY(-1px);
+        }
+
+        .section-divider {
+            height: 1px;
+            margin: 28px 0 22px;
+            background: linear-gradient(90deg, rgba(74, 44, 165, 0.12), rgba(74, 44, 165, 0.32), rgba(74, 44, 165, 0.12));
         }
 
         .tasks-section {
@@ -290,10 +299,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // cadastro de tarefas
         }
 
         @media (max-width: 860px) {
-            .content {
-                grid-template-columns: 1fr;
-            }
-
             .hero h2 {
                 font-size: 26px;
             }
@@ -302,7 +307,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // cadastro de tarefas
 </head>
 <body>
 <header>
-    <img src="img/logo-taski-png.png" alt="Taski">
+    <div class="brand-box">
+        <img src="img/logo-taski-png.png" alt="Taski">
+    </div>
 </header>
 
 <main class="page">
@@ -316,8 +323,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // cadastro de tarefas
         <a class="logout-link" href="logout.php">Sair</a>
     </section>
 
-    <section class="content">
-        <div class="panel">
+    <section class="panel">
+        <div>
             <h3>Cadastrar Tarefa</h3>
 
             <?php if (!empty($mensagem)) { ?>
@@ -351,6 +358,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // cadastro de tarefas
                 </button>
             </form>
         </div>
+
+        <div class="section-divider"></div>
 
         <div class="tasks-section">
             <h3>Lista de Tarefas</h3>
