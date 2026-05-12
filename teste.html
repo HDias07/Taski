@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Taski - Login</title>
+
+    <style>
+        * { box-sizing: border-box; }
+        main {
+            background-color: green;
+        }
+
+        body {
+            background-color: aqua;
+            width: 100%;
+            height: 100%;
+            font-family: Arial;
+        }
+
+        form {
+            width: 300px;
+            margin: 200px auto;
+            text-align: center;
+        }
+
+        input {
+            display: block;
+            margin: 0 auto 10px auto;
+            width: 250px;
+            height: 30px;
+        }
+    </style>
+</head>
+<body>
+   <main>
+    teste
+   </main>
+<form method="POST" action="login.php">
+    <h3>Login</h3>
+    <input type="text" name="usuario" placeholder="Usuário" required>
+    <input type="password" name="senha" placeholder="Senha" required>
+    <input type="submit" value="Entrar">
+</form>
+
+<a href="cadastro.php">Criar conta</a>
+
+</body>
+</html>
+
+<?php
+session_start();
+
+if (!isset($_SESSION['usuario'])){
+    header("Location: index.php");
+    exit();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+
+<h2>Bem vindo, <?php echo $_SESSION['usuario'];?>!</h2>
+
+<p>
+Bem-vindo à Taski! Aqui você organiza suas tarefas e aumenta sua produtividade 🚀
+</p>
+
+<form action="logout.php" method="POST">
+    <button type="submit">Sair</button>
+</form>
+
+</body>
+</html>
